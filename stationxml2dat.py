@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Convert stationxml to a simple .dat file
+# Convert stationxml to a simple table file
 #
 from obspy import read_inventory
 

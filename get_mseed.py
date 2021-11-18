@@ -1,19 +1,25 @@
 #!/usr/bin/env python
 #
-# Download waveform and station data
+# Download waveform data
 #
 
+import os
+import sys
+import shutil
+
+import pandas as pd
 from obspy import UTCDateTime
 from obspy.clients.fdsn import Client
 from obspy.clients.fdsn.mass_downloader import (
-    Restrictions,
     MassDownloader,
     RectangularDomain,
+    Restrictions,
 )
-import pandas as pd
-import os
 
-catalog = "catalog.dat"
+if len(sys.argv) <= 1:
+    sys.exit(f"Usage: python {sys.argv[0]} catalog.dat")
+
+catalog = sys.argv[1]
 cat = pd.read_csv(
     catalog,
     delim_whitespace=True,
@@ -43,7 +49,9 @@ for index, event in cat.iterrows():
         return mseed_path
 
     mseed_storage = get_mseed_storage
-    stationxml_storage = "stationxml"
+    # The StationXML file of the next iteration will override the current one.
+    # Thus, a unique directory name is used here and removed later.
+    stationxml_storage = f"stationxml-{event.eventid}"
 
     mdl = MassDownloader(providers=["IRIS"])
     mdl.download(
@@ -52,19 +60,5 @@ for index, event in cat.iterrows():
         mseed_storage=mseed_storage,
         stationxml_storage=stationxml_storage,
     )
-
-# The MassDownloader downloads StationXML files for each request, and new files override old files.
-# Thus, if channle changes, e.g., response changes, or EHZ changes to BHZ, old information will be missing.
-# So, I have to download station information in a single StationXML file below.
-client = Client("IRIS")
-inv = client.get_stations(
-    minlatitude=51,
-    maxlatitude=60,
-    minlongitude=-163,
-    maxlongitude=-147,
-    starttime="2018-05-01",
-    endtime="2018-12-31",
-    channel="BH?,EH?,HH?,SH?",
-    level="response",
-)
-inv.write("stations.xml", format="STATIONXML")
+    if os.path.exists(stationxml_storage):
+        shutil.rmtree(stationxml_storage)  # remove the current StationXML file

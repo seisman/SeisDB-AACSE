@@ -33,8 +33,11 @@ Networks:
 - AT
 - AK
 
-## Scripts
+## Files and scripts
 
+- catalog/*.quakeml: Raw catalog in QuakeML format
 - quakeml2dat.py: Convert catalog in QuakeML format a to simple data table
-- download_data.py: Download waveform and metadata
+- catalog.dat: Catalog in data table format
+- get_mseed.py: Download waveform and metadata
 - stationxml2dat.py: Convert StationXML file to a simple data table
+- stations.dat: Station information in data table format
