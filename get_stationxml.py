@@ -7,15 +7,7 @@
 # or EHZ changes to BHZ, old information will be missing. So, I have to download
 # station information in a single StationXML file below.
 
-from obspy import UTCDateTime
 from obspy.clients.fdsn import Client
-from obspy.clients.fdsn.mass_downloader import (
-    Restrictions,
-    MassDownloader,
-    RectangularDomain,
-)
-import pandas as pd
-import os
 
 client = Client("IRIS")
 inv = client.get_stations(

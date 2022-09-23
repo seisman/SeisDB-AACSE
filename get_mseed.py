@@ -9,7 +9,6 @@ import shutil
 
 import pandas as pd
 from obspy import UTCDateTime
-from obspy.clients.fdsn import Client
 from obspy.clients.fdsn.mass_downloader import (
     MassDownloader,
     RectangularDomain,
