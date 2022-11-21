@@ -8,8 +8,9 @@
   - https://scholarworks.alaska.edu/handle/11122/11967
 - Notes:
   1. Some events have origins like 00:00:60.000Z. I have to fix them manually.
-  2. The 201907 QuakeML file in the raw tarball is broken. So no data for this
-     month. I should report it to upstream data providers.
+  2. The 201907 QuakeML file in the raw tarball is broken. Fan Wang @ MSU asked
+     the original authors for the updated dataset and I got the new dataset
+     from Fan Wang.
 
 ## Stations
 
