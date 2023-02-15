@@ -6,11 +6,14 @@
 - URL:
   - https://scholarworks.alaska.edu/handle/11122/11418
   - https://scholarworks.alaska.edu/handle/11122/11967
-- Notes:
-  1. Some events have origins like 00:00:60.000Z. I have to fix them manually.
-  2. The 201907 QuakeML file in the raw tarball is broken. Fan Wang @ MSU asked
-     the original authors for the updated dataset and I got the new dataset
-     from Fan Wang.
+
+**Notes**
+
+1. Some events have origins like 00:00:60.000Z which don't work with ObsPy.
+   I have to fix them manually.
+2. The 201907 QuakeML file in the raw tarball is broken. Fan Wang @ MSU asked
+   the original authors for the updated dataset and I got the new dataset
+   from Fan Wang.
 
 ## Stations
 
@@ -42,3 +45,12 @@ Networks:
 - get_mseed.py: Download waveform and metadata
 - stationxml2dat.py: Convert StationXML file to a simple data table
 - stations.dat: Station information in data table format
+
+## References
+
+1. Barcheck et al., The Alaska Amphibious Community Seismic Experiment.
+   Seismological Research Letters, 2020, 91 (6): 3054–3063.
+   https://doi.org/10.1785/0220200189
+2. Ruppert et al., Enhanced Regional Earthquake Catalog with Alaska Amphibious Community Seismic Experiment Data.
+   Seismological Research Letters, 2022, 94 (1): 522–530.
+   https://doi.org/10.1785/0220220226
