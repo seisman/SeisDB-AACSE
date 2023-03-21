@@ -36,6 +36,7 @@ for index, event in cat.iterrows():
     restrictions = Restrictions(
         starttime=origin_time - 60,
         endtime=origin_time + 480,
+        # other channels like ?N? and ?D? are skipped
         channel="BH?,EH?,HH?,SH?",
     )
 

@@ -14,6 +14,7 @@
 2. The 201907 QuakeML file in the raw tarball is broken. Fan Wang @ MSU asked
    the original authors for the updated dataset and I got the new dataset
    from Fan Wang.
+3. This is not the completed data, i.e., some channels are not downloaded.
 
 ## Stations
 
