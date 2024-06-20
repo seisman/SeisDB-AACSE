@@ -1,0 +1,19 @@
+This directory contains the catalog files in QuakeML format. Here is the file list:
+```
+XO_2018_05.quakeml
+XO_2018_06.quakeml
+XO_2018_07.quakeml
+XO_2018_08.quakeml
+XO_2018_09.quakeml
+XO_2018_10.quakeml
+XO_2018_11.quakeml
+XO_2018_12.quakeml
+XO_2019_01.quakeml
+XO_2019_02.quakeml
+XO_2019_03.quakeml
+XO_2019_04.quakeml
+XO_2019_05.quakeml
+XO_2019_06.quakeml
+XO_2019_07.quakeml
+XO_2019_08.quakeml
+```

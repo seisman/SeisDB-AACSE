@@ -1,4 +1,7 @@
-# AACSE dataset
+# Seismological Database for the AACSE project
+
+This repository contains some files and scripts for building a local database for the
+AACSE project.
 
 ## Catalog
 
@@ -9,43 +12,27 @@
 
 **Notes**
 
-1. Some events have origins like 00:00:60.000Z which don't work with ObsPy.
-   I have to fix them manually.
-2. The 201907 QuakeML file in the raw tarball is broken. Fan Wang @ MSU asked
-   the original authors for the updated dataset and I got the new dataset
-   from Fan Wang.
-3. This is not the completed data, i.e., some channels are not downloaded.
+1. Some events have origins like 00:00:60.000Z which don't work with ObsPy. I have to
+   fix them manually.
+2. The 201907 QuakeML file in the raw tarball is broken. Fan Wang @ MSU asked the
+   original authors for the updated dataset and I got the new dataset from Fan Wang.
+3. The database is incompleted. Some channels are not downloaded.
 
 ## Stations
 
 Currently, only stations in the latitude 51N to 60N, and longitude -163W to -147W
 are used.
 
-Networks:
+## Steps to build the database
 
-- XO
-  - Broadband land stations (30)
-  - Broadband OBS (75)
-    - LDEO OBSs (45)
-      - LT##: Shallow OBS + APG (20)
-      - LD##: Deep OBS + DPG (10)
-      - LA##: Deep OBS + APG + Hydrophone (15)
-	- WHOI OBSs (30)
-	  - WD##: Broadband OBS
-	  - WS##: Broadband OBS + Accelerometer
-- TA
-- AV
-- AT
-- AK
-
-## Files and scripts
-
-- catalog/*.quakeml: Raw catalog in QuakeML format
-- quakeml2dat.py: Convert catalog in QuakeML format a to simple data table
-- catalog.dat: Catalog in data table format
-- get_mseed.py: Download waveform and metadata
-- stationxml2dat.py: Convert StationXML file to a simple data table
-- stations.dat: Station information in data table format
+1.  Download the earthquake catalogs from the links above and save them in the `catalog`
+    directory
+2.  Run `quakeml2dat.py` to convert catalog in QuakeML format a to simple table file.
+    `catalog.dat` is the catalog in the simple table format.
+3.  Run `get_mseed.py` to download waveform data in miniSEED format
+4.  Run `get_stationxml.py` to download station metadata in StationXML format
+5.  Run `stationxml2dat.py` to convert StationXML file to a simple table file.
+    `stations.dat` is the station metadata file in the simple table format.
 
 ## References
 
