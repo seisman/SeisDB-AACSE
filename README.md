@@ -1,9 +1,11 @@
-# Seismological Database for the AACSE project
+# SeisDB for AACSE
 
 This repository contains some files and scripts for building a local database for the
 AACSE project.
 
-## Catalog
+## Basic Information
+
+### Catalog
 
 - Date: 201805-201908
 - URL:
@@ -18,7 +20,7 @@ AACSE project.
    original authors for the updated dataset and I got the new dataset from Fan Wang.
 3. The database is incompleted. Some channels are not downloaded.
 
-## Stations
+### Stations
 
 Currently, only stations in the latitude 51N to 60N, and longitude -163W to -147W
 are used.
